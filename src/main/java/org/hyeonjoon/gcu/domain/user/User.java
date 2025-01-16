@@ -19,15 +19,15 @@ public class User {
     @Column(length = 30) private String email;
     @Column(length = 20) private String department;
     @Column private String password;
-    @Column private int enteredDate;
+    @Column private int enteredYear;
 
     @Builder
-    public User(String id, String username, String email, String department, String password, int enteredDate) {
+    public User(String id, String username, String email, String department, String password, int enteredYear) {
         this.id = id;
         this.username = username;
         this.email = email;
         this.department = department;
         this.password = password;
-        this.enteredDate = enteredDate;
+        this.enteredYear = enteredYear;
     }
 }
