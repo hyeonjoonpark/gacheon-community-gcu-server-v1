@@ -9,6 +9,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @Entity @Table(name = "tbl_user") @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class User {
@@ -19,10 +21,10 @@ public class User {
     @Column(length = 30) private String email;
     @Column(length = 20) private String department;
     @Column private String password;
-    @Column private int enteredYear;
+    @Column private LocalDate enteredYear;
 
     @Builder
-    public User(String id, String username, String email, String department, String password, int enteredYear) {
+    public User(String id, String username, String email, String department, String password, LocalDate enteredYear) {
         this.id = id;
         this.username = username;
         this.email = email;
