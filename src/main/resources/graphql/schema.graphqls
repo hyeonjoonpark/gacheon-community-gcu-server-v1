@@ -13,4 +13,23 @@ enum Role {
     ROLE_ADMIN
 }
 
+type Community {
+    id: ID!
+    title: String!
+    content: String!
+    type: CommunityType!
+    tags: [String]
+    like: Int
+    createdAt: Date
+    createdBy: String
+    modifiedAt: Date
+    modifiedBy: String
+}
+
+enum CommunityType {
+    FREE,
+    DEPARTMENT,
+    STUDENT
+}
+
 scalar Date

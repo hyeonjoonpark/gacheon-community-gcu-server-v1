@@ -20,7 +20,7 @@ import java.util.List;
                 @Index(name = "idx_type", columnList = "type")
         }
 )
-@Getter @Audited
+@Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Community extends AuditingFields {
     @Id
