@@ -1,4 +1,4 @@
-package org.hyeonjoon.gcu.global.security.auditing;
+package org.hyeonjoon.gcu.global.auditing;
 
 import lombok.NonNull;
 import org.springframework.data.domain.AuditorAware;
