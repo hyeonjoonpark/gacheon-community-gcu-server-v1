@@ -1,4 +1,4 @@
-package org.hyeonjoon.gcu.domain.auth.repository;
+package org.hyeonjoon.gcu.domain.user.repository;
 
 import org.hyeonjoon.gcu.domain.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
