@@ -1,13 +1,11 @@
 package org.hyeonjoon.gcu.domain.user;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hyeonjoon.gcu.domain.user.enums.Role;
 
 import java.time.LocalDate;
 
@@ -22,14 +20,16 @@ public class User {
     @Column(length = 20) private String department;
     @Column private String password;
     @Column private LocalDate enteredYear;
+    @Column private Role role;
 
     @Builder
-    public User(String id, String username, String email, String department, String password, LocalDate enteredYear) {
+    public User(String id, String username, String email, String department, String password, LocalDate enteredYear, Role role) {
         this.id = id;
         this.username = username;
         this.email = email;
         this.department = department;
         this.password = password;
         this.enteredYear = enteredYear;
+        this.role = role;
     }
 }
