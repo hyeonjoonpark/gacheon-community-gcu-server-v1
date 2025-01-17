@@ -15,11 +15,11 @@ public class User {
     @Id
     private String id;
 
-    @Column(length = 20) private String username;
-    @Column(length = 30) private String email;
-    @Column(length = 20) private String department;
-    @Column private String password;
-    @Column private LocalDate enteredYear;
+    @Column(length = 20, nullable = false) private String username;
+    @Column(length = 30, nullable = false) private String email;
+    @Column(length = 20, nullable = false) private String department;
+    @Column(nullable = false) private String password;
+    @Column(nullable = false) private LocalDate enteredYear;
     @Column private Role role;
 
     @Builder

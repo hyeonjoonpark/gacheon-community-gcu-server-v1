@@ -1,0 +1,16 @@
+type User {
+    id: ID!
+    username: String!
+    email: String!
+    department: String!
+    password: String!
+    enteredYear: Date!
+    role: Role
+}
+
+enum Role {
+    ROLE_USER,
+    ROLE_ADMIN
+}
+
+scalar Date
