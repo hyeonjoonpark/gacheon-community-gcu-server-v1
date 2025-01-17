@@ -1,7 +1,7 @@
 package org.hyeonjoon.gcu.domain.auth.details;
 
 import lombok.RequiredArgsConstructor;
-import org.hyeonjoon.gcu.domain.auth.repository.UserRepository;
+import org.hyeonjoon.gcu.domain.user.repository.UserRepository;
 import org.hyeonjoon.gcu.domain.user.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
