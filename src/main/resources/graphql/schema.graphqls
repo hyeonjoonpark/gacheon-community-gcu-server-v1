@@ -44,4 +44,10 @@ type Bamboo {
     modifiedBy: String
 }
 
+type BambooComment {
+    id: ID!
+    comment: String
+    bamboo: Bamboo!
+}
+
 scalar Date
