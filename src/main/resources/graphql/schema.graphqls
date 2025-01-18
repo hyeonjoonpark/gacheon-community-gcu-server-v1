@@ -32,4 +32,16 @@ enum CommunityType {
     STUDENT
 }
 
+type Bamboo {
+    id: ID!
+    title: String!
+    content: String!
+    isAnonymous: Boolean!
+    likeCount: Int!
+    createdAt: Date
+    createdBy: String
+    modifiedAt: Date
+    modifiedBy: String
+}
+
 scalar Date
