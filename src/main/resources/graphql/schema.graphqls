@@ -46,8 +46,12 @@ type Bamboo {
 
 type BambooComment {
     id: ID!
-    comment: String
+    comment: String!
     bamboo: Bamboo!
+    createdAt: Date
+    createdBy: String
+    modifiedAt: Date
+    modifiedBy: String
 }
 
 scalar Date

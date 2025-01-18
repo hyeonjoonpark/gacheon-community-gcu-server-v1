@@ -11,7 +11,7 @@ public class BambooComment extends AuditingFields {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length = 50) private String comment;
+    @Column(length = 50, nullable = false) private String comment;
 
     @ManyToOne(fetch = FetchType.LAZY) @Setter
     private Bamboo bamboo;
