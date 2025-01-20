@@ -14,11 +14,11 @@ import java.util.List;
 
 @Entity
 @Table(
-        name = "tbl_community",
-        indexes = {
-                @Index(name = "idx_title", columnList = "title"),
-                @Index(name = "idx_type", columnList = "type")
-        }
+        name = "tbl_community"
+//        indexes = {
+//                @Index(name = "idx_title", columnList = "title"),
+//                @Index(name = "idx_type", columnList = "type")
+//        }
 )
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -32,20 +32,21 @@ public class Community extends AuditingFields {
     @Column(nullable = false, length = 500)
     private String content;
     @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
     private CommunityType type;
     @Column
     @ElementCollection
     private List<String> tags = new ArrayList<>();
     @Column(nullable = false)
     @ColumnDefault("0")
-    private int like;
+    private int likeCount;
 
     @Builder
-    public Community(String title, String content, CommunityType type, List<String> tags, int like) {
+    public Community(String title, String content, CommunityType type, List<String> tags, int likeCount) {
         this.title = title;
         this.content = content;
         this.type = type;
         this.tags = tags;
-        this.like = like;
+        this.likeCount = likeCount;
     }
 }
