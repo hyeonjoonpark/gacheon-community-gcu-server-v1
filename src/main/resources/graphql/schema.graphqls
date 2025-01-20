@@ -20,9 +20,9 @@ type Community {
     type: CommunityType!
     tags: [String]
     like: Int
-    createdAt: Date
+    createdAt: DateTime
     createdBy: String
-    modifiedAt: Date
+    modifiedAt: DateTime
     modifiedBy: String
 }
 
@@ -38,9 +38,9 @@ type Bamboo {
     content: String!
     isAnonymous: Boolean!
     likeCount: Int!
-    createdAt: Date
+    createdAt: DateTime
     createdBy: String
-    modifiedAt: Date
+    modifiedAt: DateTime
     modifiedBy: String
 }
 
@@ -48,10 +48,11 @@ type BambooComment {
     id: ID!
     comment: String!
     bamboo: Bamboo!
-    createdAt: Date
+    createdAt: DateTime
     createdBy: String
-    modifiedAt: Date
+    modifiedAt: DateTime
     modifiedBy: String
 }
 
+scalar DateTime
 scalar Date
