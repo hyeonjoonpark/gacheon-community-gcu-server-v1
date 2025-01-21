@@ -11,7 +11,7 @@ import java.time.LocalDate;
 
 @Entity @Table(name = "tbl_user") @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class User {
+public class Users {
     @Id
     private String id;
 
@@ -24,7 +24,7 @@ public class User {
     @Column private Role role;
 
     @Builder
-    public User(String id, String username, String nickname, String email, String department, String password, LocalDate enteredYear, Role role) {
+    public Users(String id, String username, String nickname, String email, String department, String password, LocalDate enteredYear, Role role) {
         this.id = id;
         this.username = username;
         this.nickname = nickname;
