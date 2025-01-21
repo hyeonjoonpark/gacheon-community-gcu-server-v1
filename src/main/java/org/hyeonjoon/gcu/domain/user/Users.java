@@ -16,11 +16,11 @@ public class Users {
     private String id;
 
     @Column(length = 20, nullable = false) private String username;
-    @Column(length = 50, nullable = false) private String nickname;
+    @Column(length = 50) private String nickname;
     @Column(length = 30, nullable = false) private String email;
-    @Column(length = 20, nullable = false) private String department;
+    @Column(length = 20) private String department;
     @Column(nullable = false) private String password;
-    @Column(nullable = false) private LocalDate enteredYear;
+    @Column private LocalDate enteredYear;
     @Column private Role role;
 
     @Builder

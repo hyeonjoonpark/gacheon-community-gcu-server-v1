@@ -1,9 +1,11 @@
 package org.hyeonjoon.gcu.domain.user.repository;
 
-import org.hyeonjoon.gcu.domain.user.User;
+import org.hyeonjoon.gcu.domain.user.Users;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserRepository extends JpaRepository<User, String> {
+public interface UserRepository extends JpaRepository<Users, String> {
 
-    User findByUsername(String username);
+    Users findByUsername(String username);
+
+    boolean existsByUsername(String username);
 }
