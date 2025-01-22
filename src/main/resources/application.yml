@@ -34,6 +34,8 @@ spring:
     properties:
       hibernate.hibernate.format_sql: true
       hibernate.hibernate.default_batch_fetch_size: 100
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
     generate-ddl: true
     open-in-view: false
   main:
