@@ -3,23 +3,10 @@ spring:
     graphiql:
       enabled: true
     path: /graphql
-#  kafka:
-#    consumer:
-#      bootstrap-servers: http://localhost:9091
-#      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-#      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-#    producer:
-#      bootstrap-servers: http://localhost:9091
-#      key-serializer: org.apache.kafka.common.serialization.StringSerializer
-#      value-serializer: org.apache.kafka.common.serialization.StringSerializer
-#  data:
-#    redis:
-#      host: ${REDIS_LOCAL_HOST}
-#      port: ${REDIS_LOCAL_PORT}
   datasource:
-    url: ${SPRING_DATASOURCE_URL}
-    username: ${SPRING_DATASOURCE_USERNAME}
-    password: ${SPRING_DATASOURCE_PASSWORD}
+    url: jdbc:mysql://gcu-mysql:3306/gcu?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false&allowPublicKeyRetrieval=true
+    username: ${MYSQL_USER}
+    password: ${MYSQL_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
     hikari:
       connection-timeout: 60000
