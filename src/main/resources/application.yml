@@ -17,9 +17,9 @@ spring:
       host: ${REDIS_LOCAL_HOST}
       port: ${REDIS_LOCAL_PORT}
   datasource:
-    url: jdbc:mysql://${DB_LOCAL_HOST}/gcu?serverTimezone=UTC&characterEncoding=UTF-8&autoReconnect=true
-    password: ${DB_LOCAL_PASSWORD}
-    username: ${DB_LOCAL_USERNAME}
+    url: jdbc:mysql://${MYSQL_HOST}/gcu?serverTimezone=UTC&characterEncoding=UTF-8&autoReconnect=true
+    password: ${MYSQL_PASSWORD}
+    username: ${MYSQL_USER}
     driver-class-name: com.mysql.cj.jdbc.Driver
     hikari:
       connection-timeout: 30000
