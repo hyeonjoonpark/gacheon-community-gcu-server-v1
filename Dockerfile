@@ -8,7 +8,8 @@ WORKDIR /home/gradle/project
 COPY . .
 
 # 애플리케이션 빌드 (테스트 제외)
-RUN gradle build --no-daemon -x test
+RUN gradle clean build --no-daemon -x test
+
 
 # 실행을 위한 OpenJDK 베이스 이미지
 FROM openjdk:17-alpine
