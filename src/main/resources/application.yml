@@ -12,10 +12,10 @@ spring:
 #      bootstrap-servers: http://localhost:9091
 #      key-serializer: org.apache.kafka.common.serialization.StringSerializer
 #      value-serializer: org.apache.kafka.common.serialization.StringSerializer
-  data:
-    redis:
-      host: ${REDIS_LOCAL_HOST}
-      port: ${REDIS_LOCAL_PORT}
+#  data:
+#    redis:
+#      host: ${REDIS_LOCAL_HOST}
+#      port: ${REDIS_LOCAL_PORT}
   datasource:
     url: jdbc:mysql://gcu-mysql:3306/gcu?serverTimezone=UTC&characterEncoding=UTF-8&autoReconnect=true
     username: jjoon1379
