@@ -7,8 +7,8 @@ WORKDIR /home/gradle/project
 # 현재 디렉토리의 모든 파일을 컨테이너로 복사
 COPY . .
 
-# 애플리케이션 빌드 (테스트 제외)
-RUN gradle clean build --no-daemon -x test --stacktrace
+# Gradle 캐시 삭제 후 빌드
+RUN rm -rf /home/gradle/.gradle/caches && ./gradlew clean build --no-daemon -x test --info
 
 # 실행을 위한 OpenJDK 베이스 이미지
 FROM openjdk:17-alpine
