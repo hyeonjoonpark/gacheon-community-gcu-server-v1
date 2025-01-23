@@ -1,6 +1,8 @@
 # Gradle 빌드를 위한 베이스 이미지
 FROM gradle:7.5.0-jdk17-alpine AS build
 
+RUN apk --no-cache add curl  # curl 설치
+
 # 작업 디렉토리 설정
 WORKDIR /home/gradle/project
 
