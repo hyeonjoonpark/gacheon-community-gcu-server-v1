@@ -1,8 +1,6 @@
 # Gradle 빌드를 위한 베이스 이미지
 FROM gradle:7.5.0-jdk17-alpine AS build
 
-RUN apk --no-cache add curl  # curl 설치
-
 # 작업 디렉토리 설정
 WORKDIR /home/gradle/project
 
@@ -14,6 +12,9 @@ RUN rm -rf /home/gradle/.gradle/caches && ./gradlew clean build --no-daemon -x t
 
 # 실행을 위한 OpenJDK 베이스 이미지
 FROM openjdk:17-alpine
+
+# curl 설치
+RUN apk --no-cache add curl  # curl 설치
 
 # 작업 디렉토리 설정
 WORKDIR /app
