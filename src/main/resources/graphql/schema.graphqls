@@ -1,57 +1,57 @@
 type User {
-    id: ID!
-    username: String!
-    email: String!
-    department: String!
-    password: String!
-    enteredYear: Date!
-    role: Role
+  id: ID!
+  username: String!
+  email: String!
+  department: String!
+  password: String!
+  enteredYear: Date!
+  role: Role
 }
 
 enum Role {
-    ROLE_USER,
-    ROLE_ADMIN
+  ROLE_USER
+  ROLE_ADMIN
 }
 
 type Community {
-    id: ID!
-    title: String!
-    content: String!
-    type: CommunityType!
-    tags: [String]
-    like: Int
-    createdAt: DateTime
-    createdBy: String
-    modifiedAt: DateTime
-    modifiedBy: String
+  id: ID!
+  title: String!
+  content: String!
+  type: CommunityType!
+  tags: [String]
+  like: Int
+  createdAt: DateTime
+  createdBy: String
+  modifiedAt: DateTime
+  modifiedBy: String
 }
 
 enum CommunityType {
-    FREE,
-    DEPARTMENT,
-    STUDENT
+  FREE
+  DEPARTMENT
+  STUDENT
 }
 
 type Bamboo {
-    id: ID!
-    title: String!
-    content: String!
-    isAnonymous: Boolean!
-    likeCount: Int!
-    createdAt: DateTime
-    createdBy: String
-    modifiedAt: DateTime
-    modifiedBy: String
+  id: ID!
+  title: String!
+  content: String!
+  isAnonymous: Boolean!
+  likeCount: Int!
+  createdAt: DateTime
+  createdBy: String
+  modifiedAt: DateTime
+  modifiedBy: String
 }
 
 type BambooComment {
-    id: ID!
-    comment: String!
-    bamboo: Bamboo!
-    createdAt: DateTime
-    createdBy: String
-    modifiedAt: DateTime
-    modifiedBy: String
+  id: ID!
+  comment: String!
+  bamboo: Bamboo!
+  createdAt: DateTime
+  createdBy: String
+  modifiedAt: DateTime
+  modifiedBy: String
 }
 
 scalar DateTime

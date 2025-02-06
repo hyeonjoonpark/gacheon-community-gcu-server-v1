@@ -15,13 +15,13 @@ public class Users {
     @Id
     private String id;
 
-    @Column(length = 20, nullable = false) private String username;
-    @Column(length = 50) private String nickname;
+    @Column(length = 20) private String username;
+    @Column(length = 50, nullable = false) private String nickname;
     @Column(length = 30, nullable = false) private String email;
     @Column(length = 20) private String department;
     @Column(nullable = false) private String password;
     @Column private LocalDate enteredYear;
-    @Column private Role role;
+    @Column @Enumerated(value = EnumType.STRING) private Role role;
 
     @Builder
     public Users(String id, String username, String nickname, String email, String department, String password, LocalDate enteredYear, Role role) {
@@ -33,5 +33,11 @@ public class Users {
         this.password = password;
         this.enteredYear = enteredYear;
         this.role = role;
+    }
+
+    public void update(String department, LocalDate enteredYear, String username) {
+        this.department = department;
+        this.enteredYear = enteredYear;
+        this.username = username;
     }
 }

@@ -54,6 +54,7 @@ public class SecurityConfig {
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS")); // 허용할 HTTP 메서드
         configuration.setAllowedHeaders(List.of("*")); // 허용할 헤더
         configuration.setAllowCredentials(true); // 자격 증명 전송 허용
+        configuration.setExposedHeaders(List.of("Authorization", "Cache-Control", "Content-Type", "Set-Cookie"));
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration); // 모든 엔드포인트에 대해 CORS 허용

@@ -47,7 +47,7 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
         if (!isUserExists) {
             Users user = Users.builder()
                     .id(id)
-                    .username(username)
+                    .nickname(username)
                     .email(email)
                     .password("")
                     .role(Role.ROLE_USER)

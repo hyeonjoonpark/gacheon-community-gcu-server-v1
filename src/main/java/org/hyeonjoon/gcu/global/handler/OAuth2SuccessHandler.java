@@ -32,7 +32,6 @@ public class OAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
 
         // 사용자 이름 추출 및 공백 제거
         String userName = (String) attributes.get("name");
-        userName = userName.replace(" ", "_"); // 공백 제거
         log.info("userName: {}", userName);
 
         if (!userName.isEmpty()) { // 빈 문자열 체크

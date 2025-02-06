@@ -1,0 +1,11 @@
+input SignUpRequest {
+    department: String!
+    enteredYear: Date!
+    name: String!
+}
+
+input OAuth2UserRequest {
+    # OAuth2UserRequest 관련 필드들을 정의해야 합니다
+    clientRegistration: String
+    accessToken: String
+}
