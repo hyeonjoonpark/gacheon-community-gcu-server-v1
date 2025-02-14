@@ -1,3 +1,4 @@
 type Mutation {
     signUp(signUpRequest: SignUpRequest!): String!
+    saveCommunity(communityRequest: CommunityRequest!): Boolean!
 }
