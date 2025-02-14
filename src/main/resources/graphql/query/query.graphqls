@@ -1,3 +1,8 @@
 type Query {
-    findAll: [User!]!
+    findAllByTab(tab: CommunityType!, page: Int = 1, size: Int = 10): CommunityConnection!
+}
+
+type CommunityConnection {
+    communities: [Community!]!
+    pageInfo: PageInfo!
 }

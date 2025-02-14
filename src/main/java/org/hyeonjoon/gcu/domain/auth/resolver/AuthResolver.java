@@ -1,13 +1,12 @@
-package org.hyeonjoon.gcu.domain.auth.controller;
+package org.hyeonjoon.gcu.domain.auth.resolver;
 
 import lombok.RequiredArgsConstructor;
-import org.hyeonjoon.gcu.domain.auth.SignUpRequest;
+import org.hyeonjoon.gcu.domain.auth.dto.request.SignUpRequest;
 import org.hyeonjoon.gcu.domain.user.Users;
 import org.hyeonjoon.gcu.domain.user.repository.UserRepository;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
-import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -19,12 +18,12 @@ import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
-public class AuthController {
+public class AuthResolver {
     private final UserRepository userRepository;
-    private static final Logger logger = LoggerFactory.getLogger(AuthController.class);
+    private static final Logger logger = LoggerFactory.getLogger(AuthResolver.class);
 
     @MutationMapping(name = "signUp")
-    public void signUp(@Argument SignUpRequest signUpRequest, @AuthenticationPrincipal OAuth2User oauth2User) {
+    public String signUp(@Argument SignUpRequest signUpRequest, @AuthenticationPrincipal OAuth2User oauth2User) {
         if (oauth2User == null) {
             throw new AuthenticationCredentialsNotFoundException("로그인이 필요한 서비스입니다.");
         }
@@ -44,15 +43,15 @@ public class AuthController {
             user.update(signUpRequest.department(), signUpRequest.enteredYear(), signUpRequest.name());
             userRepository.save(user);
             logger.info("사용자 정보 업데이트 완료");
-        } else {
-            Users newUser = Users.builder()
-                    .email(email)
-                    .department(signUpRequest.department())
-                    .enteredYear(signUpRequest.enteredYear())
-                    .username(signUpRequest.name())
-                    .build();
-            userRepository.save(newUser);
-            logger.info("새 사용자 등록 완료: {}", newUser);
         }
+        Users newUser = Users.builder()
+                .email(email)
+                .department(signUpRequest.department())
+                .enteredYear(signUpRequest.enteredYear())
+                .username(signUpRequest.name())
+                .build();
+        userRepository.save(newUser);
+
+        return newUser.getUsername();
     }
 }

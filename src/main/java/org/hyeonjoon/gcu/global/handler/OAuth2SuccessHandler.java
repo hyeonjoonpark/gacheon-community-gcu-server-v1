@@ -28,30 +28,27 @@ public class OAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
         // OAuth2 사용자 정보 추출
         OAuth2User oAuth2User = (OAuth2User) authentication.getPrincipal();
         Map<String, Object> attributes = oAuth2User.getAttributes();
-        log.info("oauth attributes: {}", attributes);
+        log.info("oauth attributes: {}", oAuth2User);
 
-        // 사용자 이름 추출 및 공백 제거
-        String userName = (String) attributes.get("name");
-        log.info("userName: {}", userName);
+        // 사용자 이름 추출
+        String id = (String) attributes.get("sub");
 
-        if (!userName.isEmpty()) { // 빈 문자열 체크
+        if (!id.isEmpty()) { // 빈 문자열 체크
             // 쿠키 값 검증
-            if (isValidCookieValue(userName)) {
-                // 쿠키 생성
-                Cookie cookie = new Cookie("name", userName);
-                cookie.setPath("/");
-                cookie.setHttpOnly(true); // JavaScript에서 접근 불가
-                response.addCookie(cookie);
-            } else {
-                // 유효하지 않은 쿠키 값 처리
-                System.out.println("Invalid cookie value for userName.");
-            }
+
+            // 쿠키 생성
+            Cookie cookie = new Cookie("id", id);
+            cookie.setPath("/");
+            cookie.setHttpOnly(true); // JavaScript에서 접근 불가
+            response.addCookie(cookie);
+
         } else {
             // 유효하지 않은 쿠키 값 처리
             System.out.println("Invalid cookie value for userName.");
         }
 
-        boolean isUserExist = userRepository.existsByUsername(userName);
+        boolean isUserExist = userRepository.findByUsernameIsNull();
+        log.info("isUserExist: {}", isUserExist);
         // 리다이렉트 URL 설정
         String targetUrl = isUserExist ? "http://localhost:3001" : "http://localhost:3001/signup"; // 리다이렉트 시킬 React 경로
         String redirectUrl = UriComponentsBuilder
@@ -60,10 +57,5 @@ public class OAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
                 .toUriString();
 
         getRedirectStrategy().sendRedirect(request, response, redirectUrl);
-    }
-
-    private boolean isValidCookieValue(String value) {
-        // 쿠키 값이 유효한지 검사하는 로직 (예: 공백, 특수문자 체크)
-        return !value.contains(" ") && value.matches("^[\\w\\-\\.]+$"); // 알파벳, 숫자, -, . 만 허용
     }
 }

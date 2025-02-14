@@ -1,4 +1,4 @@
-package org.hyeonjoon.gcu.domain.auth;
+package org.hyeonjoon.gcu.domain.auth.dto.request;
 
 import java.time.LocalDate;
 

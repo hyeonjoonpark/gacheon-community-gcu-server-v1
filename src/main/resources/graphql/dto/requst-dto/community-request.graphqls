@@ -1,0 +1,6 @@
+input CommunityRequest {
+    title: String
+    content: String
+    tags: [String!]
+    type: CommunityType!
+}

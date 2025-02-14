@@ -1,3 +1,17 @@
+scalar DateTime
+scalar Date
+
+enum Role {
+  ROLE_USER
+  ROLE_ADMIN
+}
+
+enum CommunityType {
+  FREE
+  DEPARTMENT
+  STUDENT
+}
+
 type User {
   id: ID!
   username: String!
@@ -8,28 +22,17 @@ type User {
   role: Role
 }
 
-enum Role {
-  ROLE_USER
-  ROLE_ADMIN
-}
-
 type Community {
   id: ID!
   title: String!
   content: String!
   type: CommunityType!
   tags: [String]
-  like: Int
+  likeCount: Int
   createdAt: DateTime
   createdBy: String
   modifiedAt: DateTime
   modifiedBy: String
-}
-
-enum CommunityType {
-  FREE
-  DEPARTMENT
-  STUDENT
 }
 
 type Bamboo {
@@ -54,5 +57,16 @@ type BambooComment {
   modifiedBy: String
 }
 
-scalar DateTime
-scalar Date
+type PageInfo {
+  totalPages: Int!
+  totalElements: Int!
+  currentPage: Int!
+  size: Int!
+  hasNext: Boolean!
+  hasPrevious: Boolean!
+}
+
+type CommunityPage {
+  content: [Community!]!
+  pageInfo: PageInfo!
+}
